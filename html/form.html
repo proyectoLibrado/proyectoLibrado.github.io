@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bulma@1.0.0/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../styles/styleformulario.css"
+    />
+    <script src="../js/validate.js"></script>
+    <title>Inscripción</title>
+  </head>
+  <body>
+    <nav class="navbar is-fixed-top">
+      <div class="navbar-brand">
+        <div
+          class="navbar-burger burger"
+          data-target="navbarExampleTransparentExample"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <a class="navbar-item">
+          <img src="../img/logo.png" alt="Logo de Yakuza" />
+        </a>
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="../index.html">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <form name="inscription" action="" id="inscription" method="post">
+      <div class="container">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Información Personal</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  name="name"
+                  oninput="valueName(this)"
+                  placeholder="Tu nombre completo"
+                  autocomplete="off"
+                  required
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+                <span class="warning" id="name"></span>
+              </p>
+              <p class="help">Empieza por apellidos</p>
+            </div>
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                <input
+                  class="input"
+                  type="email"
+                  name="email"
+                  oninput="valueEmail(this)"
+                  placeholder="Tu correo eléctronico"
+                  autocomplete="off"
+                  required
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span class="warning" id="email"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label"></div>
+          <div class="field-body">
+            <div class="field is-expanded">
+              <div class="field has-addons">
+                <p class="control">
+                  <a class="button is-static"> +52 </a>
+                </p>
+                <p class="control is-expanded">
+                  <input
+                    class="input"
+                    type="tel"
+                    name="phone"
+                    oninput="valuePhone(this)"
+                    placeholder="Tu número de teléfono"
+                    autocomplete="off"
+                    required
+                  />
+                </p>
+              </div>
+              <span class="warning" id="phone"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Estoy interesado en</label>
+          </div>
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select
+                    name="interest"
+                    oninput="valueInterest(this)"
+                    required
+                  >
+                    <option default>Elige una opción</option>
+                    <option value="Entrenar Powerlifting / Strongman">
+                      Entrenar Powerlifting / Strongman
+                    </option>
+                    <option value="Recibir Coaching">Recibir Coaching</option>
+                    <option value="Recibir Asesoramiento Nutricional">
+                      Recibir Asesoramiento Nutricional
+                    </option>
+                    <option
+                      value="Más de una (especificado en el mensaje personalizado)"
+                    >
+                      Más de una (especificar en el mensaje personalizado)
+                    </option>
+                  </select>
+                </div>
+                <span class="warning" id="interest"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">¿Ya eres miembro?</label>
+          </div>
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+                <label class="radio">
+                  <input
+                    type="radio"
+                    value="Sí"
+                    name="member"
+                    oninput="valueMember(this)"
+                    required
+                  />
+                  Sí
+                </label>
+                <label class="radio">
+                  <input
+                    type="radio"
+                    value="No"
+                    name="member"
+                    oninput="valueMember(this)"
+                    required
+                  />
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Mensaje Personalizado</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <textarea
+                  class="textarea"
+                  name="menssage"
+                  oninput="valueMenssage(this)"
+                  placeholder="Explica cómo podemos ayudarte"
+                  autocomplete="off"
+                ></textarea>
+                <span class="warning" id="menssage"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <button
+                  type="submit"
+                  id="button"
+                  disabled="true"
+                  class="button is-primary"
+                >
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script src="../js/form.js"></script>
+  </body>
+</html>

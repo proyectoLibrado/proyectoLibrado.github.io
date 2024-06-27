@@ -1,0 +1,75 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+
+html{
+    scroll-behavior: smooth;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    color: white;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url("../img/fondohero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+:root {
+    --color-contenedor-enfasis: #6b0015;
+    --color-texto-enfasis: #ff7062;
+}
+
+table td {
+    font-family: var(--bulma-body-family);
+    font-size: var(--bulma-body-font-size);
+    font-weight: var(--bulma-body-font-weight);
+    border-collapse: collapse;
+    border: solid 1px #353a46;
+    width: 100%;
+}
+
+td {
+    font-size: 16px;
+    padding: 8px;
+    padding-inline: 15px;
+}
+
+.td-primario {
+    background-color: var(--color-contenedor-enfasis);
+    color: var(--color-texto-enfasis);
+    font-weight: bold;
+}
+
+.separador-parrafos {
+    padding-bottom: 15px;
+}
+
+.separador-lista {
+    padding-bottom: 10px;
+}
+
+/* Start: Google Maps Responsive */
+.map-responsive {
+    overflow:hidden;
+    padding-bottom:400px; /*Reduce este valor si el mapa fuera muy alto, por ejemplo 250px, puedes usar porcentajes, 50%*/
+    position:relative;
+    height:0;
+}
+
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+/* End: Google Maps Responsive */
